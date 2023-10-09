@@ -9,9 +9,6 @@
   text-transform: uppercase;
 }
 
-.wrapper {
-  position: relative;
-}
 
 .brand-wrapper {
   display: flex;
@@ -70,7 +67,7 @@
   }
 }
 
-.slider {
+.wrapper {
   @include mobile-s-max {
     position: relative;
     &::before {
