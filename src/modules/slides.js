@@ -1,10 +1,20 @@
-const slider = document.querySelector('.slider');
-const wrapper = document.querySelector('.brands__wrapper');
+const wrapper = document.querySelector('.wrapper');
+const brandsWrapper = document.querySelector('.brands__wrapper');
 const item = document.querySelectorAll('.brands__item')
 const brandsBtn = document.querySelector('.brands__btn')
 
+if (window.innerWidth <= 320) {
+	slider.classList.toggle('swiper-container')
+	brandsWrapper.classList.toggle('swiper-wrapper')
+	item.forEach(element => {
+		element.classList.toggle('swiper-slide')
+	});
+	brandsBtn.remove()
+	sliderSwiper()
+}
+
 function sliderSwiper() {
-	new Swiper(slider, {
+	new Swiper(wrapper, {
 		spaceBetween: 16,
 		slidesPerView: 'auto',
 		// loop: true,
@@ -15,14 +25,4 @@ function sliderSwiper() {
 			el: ".swiper-pagination",
 		  },
 	})
-}
-
-if (window.innerWidth <= 320) {
-	slider.classList.toggle('swiper-container')
-	wrapper.classList.toggle('swiper-wrapper')
-	item.forEach(element => {
-		element.classList.toggle('swiper-slide')
-	});
-	brandsBtn.remove()
-	sliderSwiper()
 }
