@@ -1,0 +1,45 @@
+#brands {
+  overflow: hidden;
+  background: $background-gray-color;
+  height: 100vh;
+}
+
+.brands {
+  &__title {
+    padding-top: 15px;
+  }
+  &__wrapper {
+    margin-top: 40px;
+    @include laptop-m-min {
+      gap: 24px;
+    }
+    @include mobile-l-max {
+      gap: 16px;
+    }
+    @include mobile-s-max {
+      justify-content: start;
+      flex-wrap: nowrap;
+      gap: 0;
+    }
+  }
+  &__item {
+    @include tablet-m-max {
+      width: 224px;
+    }
+    @include mobile-s-max {
+      width: 240px;
+    }
+  }
+  &__btn {
+    margin-top: 24px;
+  }
+}
+
+@keyframes animItem {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

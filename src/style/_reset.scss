@@ -1,0 +1,29 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+button {
+	border: none;
+	background: transparent;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container {
+	max-width: 1120px;
+	margin: 0 auto;
+	padding: 0 32px;
+	@include laptop-m-min {
+		padding: 0 24px;
+	}
+	@include tablet-m-max {
+		padding: 0 24px;
+	}
+	@include mobile-s-max {
+		padding: 0 16px;
+	}
+}

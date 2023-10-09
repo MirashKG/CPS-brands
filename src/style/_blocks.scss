@@ -1,0 +1,102 @@
+.title {
+    color: $tab-text-color;
+    font-family: 'TT Lakes';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+}
+
+
+.brand-wrapper{
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+	&__item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 16px;
+		width: 240px;
+		height: 72px;
+		border-radius: 6px;
+		border: 1px solid $gray-line-color;
+		background: $background-white-color;
+		animation: animItem 0.5s ease;
+	}
+}
+
+.show-btn {
+    position: relative;
+    left: 20px;
+    color: $text-color;
+    font-family: 'TT Lakes';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    &::before {
+      content: '';
+      position: absolute;
+      left: -25px;
+      background: url(./img/arrow-blue.svg) no-repeat center/10px;
+      width: 24px;
+      height: 24px;
+    }
+}
+
+.icon-arrow {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid $main-color;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	transition: all .3s ease;
+}
+
+.show-btn_active {
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+
+.slider {
+    @include mobile-s-max {
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        right: -16px;
+        top: -5px;
+        z-index: 3;
+        width: 24px;
+        height: 81px;
+        background: linear-gradient(
+          270deg,
+          $background-gray-color 16.84%,
+          $background-white-color-transperent 100%
+        );
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        left: -16px;
+        top: -5px;
+        z-index: 5;
+        width: 24px;
+        height: 81px;
+        background: linear-gradient(
+          90deg,
+          $background-gray-color 16.84%,
+          $background-white-color-transperent 100%
+        );
+      }
+    }
+  }
