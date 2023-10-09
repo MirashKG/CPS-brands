@@ -33,6 +33,21 @@
   &__btn {
     margin-top: 24px;
   }
+  &__pagination,
+  .swiper-pagination-horizontal {
+    @include mobile-s-max {
+      bottom: -30px;
+      .swiper-pagination-bullet {
+        background: #cdcdcd;
+        width: 12px;
+        height: 12px;
+        
+      }
+      .swiper-pagination-bullet-active {
+        background: #B5B6BC;
+      }
+    }
+  }
 }
 
 @keyframes animItem {

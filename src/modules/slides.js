@@ -1,4 +1,4 @@
-const slider = document.querySelector('.brands__slider');
+const slider = document.querySelector('.slider');
 const wrapper = document.querySelector('.brands__wrapper');
 const item = document.querySelectorAll('.brands__item')
 const brandsBtn = document.querySelector('.brands__btn')
@@ -11,6 +11,9 @@ function sliderSwiper() {
 		initialSlide: 0,
 		watchOverflow: true,
 		grabCursor: true,
+		pagination: {
+			el: ".swiper-pagination",
+		  },
 	})
 }
 
