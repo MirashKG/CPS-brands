@@ -5,13 +5,13 @@ $tab-text-hover-color: #454545;
 
 $background-gray-color: #f8f8f8;
 $background-white-color: #ffffff;
-$background-white-color-transperent: rgba(248, 248, 248, 0.00);
+$background-white-color-transperent: rgba(248, 248, 248, 0);
 
 $main-color: #ff3e79;
 $main-hover-color: #ff004c;
 
 $brightBlue-line-color: #b8ffec;
-$brightBlue-lineMenu-color: #41F6D7;
+$brightBlue-lineMenu-color: #41f6d7;
 $gray-line-color: #eaeaea;
 
 $screen-mobile-s-max: 320px;
@@ -19,5 +19,5 @@ $screen-mobile-l-max: 540px;
 $screen-tablet-m-max: 815px;
 $screen-laptop-m-max: 1120px;
 
-$box-shadow-aside: 	16px 0px 52px 0px rgba(14, 24, 80, 0.2), 
-					-2px 0px 4px 0px rgba(69, 79, 126, 0.02);
+$box-shadow-aside: 16px 0px 52px 0px rgba(14, 24, 80, 0.2), -2px 0px 4px 0px rgba(69, 79, 126, 0.02);
+

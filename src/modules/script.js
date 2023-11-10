@@ -1,45 +1,58 @@
-const item = document.querySelectorAll('.brands__item');
 const btnShow = document.querySelector('.show-btn');
-
-const windowWidth =  window.innerWidth;
-
-function windowBrowser () {
-  let x;
-  if (1080 <= windowWidth) {
-    x = 8
-  } else if (768 <= windowWidth) {
-    x = 6
-  }else if (320 <= windowWidth) {
-    x = 4
-  }
-  else if (320 >= windowWidth) {
-    x = item.length
-  }
-  return x
-}
-
-function showVisible(visible) {
-
-  if (windowWidth > 320) {
-    for (let i = windowBrowser(); i < item.length; i++) {
-      item[i].style.display = i < visible ? 'flex' : 'none';
-    }
-  }
-}
-
-let visible = windowBrowser();
-let allCard = item.length - visible;
-showVisible(visible);
+const wrapper = document.querySelector('.wrapper');
+const brandsWrapper = document.querySelector('.brands__wrapper');
+const item = document.querySelectorAll('.brands__item');
+const brandsBtn = document.querySelector('.brands__btn');
 
 btnShow.addEventListener('click', () => {
-	btnShow.classList.toggle('show-btn_active')
+  btnShow.classList.toggle('show-btn_active');
   if (btnShow.textContent == 'Показать все') {
     btnShow.textContent = 'Cкрыть';
-    visible += allCard
+    brandsWrapper.style.height = '100%';
   } else if (btnShow.textContent == 'Cкрыть') {
     btnShow.textContent = 'Показать все';
-    visible -= allCard
+    brandsWrapper.style.height = 72 * 2 + 16 + 'px';
   }
-  showVisible(visible);
 });
 
+let windowWidth = window.innerWidth;
+let swiperSlider = new Swiper(wrapper, {
+    init: false,
+    slidesPerView: 'auto',
+    loop: true,
+    initialSlide: 0,
+    watchOverflow: true,
+    grabCursor: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+
+function sliderFunc(width) {
+  if (width <= 540) {
+    brandsBtn.style.display = 'none';
+    wrapper.classList.add('swiper-container');
+    brandsWrapper.classList.add('swiper-wrapper');
+    item.forEach((element) => {
+      element.classList.add('swiper-slide');
+    });
+    brandsWrapper.style.height = 72 + 16 + 'px';
+    swiperSlider.init();
+  }
+  if (width > 540) {
+    brandsBtn.style.display = 'block';
+    wrapper.classList.remove('swiper-container');
+    brandsWrapper.classList.remove('swiper-wrapper');
+    item.forEach((element) => {
+      element.classList.remove('swiper-slide');
+    });
+    brandsWrapper.style.height = 72 * 2 + 16 + 'px';
+  }
+}
+sliderFunc(windowWidth);
+
+window.addEventListener('resize', (e) => {
+  windowWidth = e.currentTarget.innerWidth;
+  sliderFunc(windowWidth);
+});
